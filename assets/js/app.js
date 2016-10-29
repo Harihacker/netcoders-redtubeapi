@@ -6,7 +6,13 @@ var APP = APP || {};
       contentWrap = $('#content .container'),
       preloader = $('#preloader'),
       inputSearch = formSearch.find('.form-control'),
-      btnSearch = formSearch.find('.btn');
+      btnSearch = formSearch.find('.btn'),
+      openVideo = function(e){
+        console.log($(e.currentTarget).attr('data-video'), $(e.currentTarget).attr('data-title'));
+        $('#modalVideo iframe').attr('src', $(e.currentTarget).attr('data-video'));
+        $('#modalVideo .modal-title').text($(e.currentTarget).attr('data-title'));
+      }
+      ;
 
   formSearch.on('submit', function(e){
     e.preventDefault();
@@ -14,16 +20,16 @@ var APP = APP || {};
     contentWrap.html('');
 
     Redtube.getVideo(inputSearch.val(), function(res){
-      if(!res || res.count){
+      if(!res || !res.count){
         contentWrap
           .html('<div class="col-lg-12"><p class="alert alert-danger text-center">Nenhum vídeo encontrado, tente novamente...</p></div>')
         ;
         formSearch.trigger('loaded');
         return;
       }
-
-      $('#tpl-video').tpl(res.videos).append(contentWrap);
-
+      $('#tpl-video').tmpl(res.videos).appendTo(contentWrap);
+      formSearch.trigger('loaded');
+      contentWrap.find('a').bind('click', openVideo)
     });
     return;
   });

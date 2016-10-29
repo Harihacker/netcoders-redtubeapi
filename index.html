@@ -47,15 +47,15 @@
 <script type="text/html" id="tpl-video">
   <div class="col-sm-6 col-md-3">
     <div class="thumbnail">
-      <a href="#" class="open-video" data-toggle="modal" data-target="#modalVideo" target="_blank">
-        <img src="http://www.dummyimage.com/400x250/444/ccc.jpg">
+      <a href="#" data-video="${video.embed_url}" data-title="${video.title}" class="open-video" data-toggle="modal" data-target="#modalVideo" target="_blank">
+        <img src="${video.thumb}">
       </a>
       <div class="caption">
         <p>
-          <i class="fa fa-star"></i> 5,3 - <i class="fa fa-clock-o"></i> 6:44 - <i class="fa fa-eye"></i> 0<br>
+          <i class="fa fa-star"></i> ${video.rating} - <i class="fa fa-clock-o"></i> ${video.duration} - <i class="fa fa-eye"></i> ${video.views}<br>
         </p>
         <p class="description">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, iste!
+          ${video.title}
         </p>
       </div>
     </div>
@@ -68,14 +68,16 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">Video title</h4>
+          <h4 class="modal-title"></h4>
         </div>
         <div class="modal-body">
-          <iframe src="" frameborder="0"></iframe>
+          <div class="">
+            <iframe class="" frameborder="0" style="height: 310px; width: 100%;"></iframe>
+          </div>
         </div>
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div><!-- /.modal -->
+      </div>
+    </div>
+  </div>
 
   <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
