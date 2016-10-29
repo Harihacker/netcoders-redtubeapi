@@ -1,0 +1,22 @@
+{
+  "name": "netcoder-redtubeapi",
+  "homepage": "https://github.com/ogilvieira/netcoders-redtubeapi",
+  "authors": [
+    "Gil Vieira <ogilvieira@gmail.com>"
+  ],
+  "description": "",
+  "main": "index.html",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.1.1"
+  }
+}
